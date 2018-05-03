@@ -6,9 +6,17 @@ After writing your function uncomment the matching function reference at the bot
 
 // 1. Write a function called helloWorld that returns the string 'Hello World!'.
 
-function helloWorld() {
+
+var a;
+
+function helloWorld (a) {
+return 'Hello World!';  
 
 }
+
+helloWorld(a)
+
+
 
 /*
 2. Write a function called lambdaSchool that has a single parameter called num.
@@ -23,9 +31,26 @@ function helloWorld() {
              lambdaSchool(8); // returns 8
 */
 
-function lambdaSchool() {
+var num = (Math.floor(Math.random()*50)) + 1
 
+function lambdaSchool (num) {
+
+if (num%3 === 0 && num%5 === 0) {
+    return 'Lambda School'
 }
+else if (num%3 === 0 && num%5 !== 0) {
+    return'Lambda'
+} 
+else if (num%3 !== 0 && num%5 ===0){
+    return 'School'
+}
+else {
+    console.log(num)
+}
+return num;
+}
+
+//lambdaSchool(num)
 
 /*
 3. Write a function called longestString that has a single parameter called strs.
@@ -38,9 +63,26 @@ function lambdaSchool() {
              longestString(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
 */
 
-function longestString() {
+//var strs = ['one', 'two','three','four','five','six','seven'];
+
+var strs = [];
+
+function longestString(strs){
+  var length = 0;
+  var longest;
+  
+  for (var i=0; i<strs.length; i++){
+    
+    if (strs[i].length > length){
+      length = strs[i].length;
+      longest = strs[i];
+    }
+    }
+  
+  return longest;
 
 }
+longestString(strs)
 
 /*
 4. Write a function called computeUserAverageAge that has a single parameter called users
@@ -63,9 +105,25 @@ function longestString() {
              computeUserAverageAge(users); // returns 62 (This number is rounded up from 61.6666)
 */
 
-function computeUserAverageAge() {
+const users = [];
 
+function computeUserAverageAge(users) {
+    const addens = [];
+    for (var i = 0; i < users.length; i++){
+        addens.push(users[i].age)
+        
+    }
+    const total = addens.reduce(function(acc, item){return acc + item;});
+    const average = total / addens.length;
+    const roundAverage = Math.round(average);
+     //console.log(addens);
+     //console.log(total);
+     //console.log(average);
+     //console.log(roundAverage);
+     return roundAverage
 }
+
+//computeUserAverageAge(users);
 
 module.exports = {
  helloWorld,
